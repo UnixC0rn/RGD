@@ -1,0 +1,24 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Einleitung}{1}{}%
+\contentsline {subsection}{\numberline {1.1}Aufbau der Arbeit}{1}{}%
+\contentsline {subsection}{\numberline {1.2}Definitionen}{1}{}%
+\contentsline {subsubsection}{\numberline {1.2.1}Filterblase}{1}{}%
+\contentsline {subsubsection}{\numberline {1.2.2}Personalisierung}{1}{}%
+\contentsline {subsubsection}{\numberline {1.2.3}Index}{1}{}%
+\contentsline {section}{\numberline {2}Suchdienste}{1}{}%
+\contentsline {subsection}{\numberline {2.1}Überblick über Suchdienste}{1}{}%
+\contentsline {subsection}{\numberline {2.2}Suchmaschinen}{2}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Beispiele}{2}{}%
+\contentsline {subsubsection}{\numberline {2.2.2}Meta-Suchmaschinen}{3}{}%
+\contentsline {subsection}{\numberline {2.3}Personalisierung}{3}{}%
+\contentsline {subsubsection}{\numberline {2.3.1}Formen der Personalisierung}{4}{}%
+\contentsline {section}{\numberline {3}Suchalgorithmen}{4}{}%
+\contentsline {subsection}{\numberline {3.1}Grundlagen und Begriffe}{4}{}%
+\contentsline {subsection}{\numberline {3.2}PageRank Algorithmus}{5}{}%
+\contentsline {section}{\numberline {4}Filterblasen Theorie}{5}{}%
+\contentsline {subsection}{\numberline {4.1}title}{5}{}%
+\contentsline {section}{\numberline {5}Ergebnisse und Diskussion}{5}{}%
+\contentsline {section}{\numberline {6}Fazit und Schlussfolgerung}{5}{}%
+\contentsline {section}{Literaturverzeichnis}{6}{}%
+\contentsline {section}{Anhang}{6}{}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

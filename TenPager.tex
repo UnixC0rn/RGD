@@ -1,0 +1,220 @@
+\documentclass[paper=a4,fontsize=12pt,ngerman]{scrartcl}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage[a4paper,left=25mm,right=25mm,top=25mm,bottom=30mm]{geometry}
+\usepackage{parskip}
+\usepackage{url}
+% 
+
+\begin{document}
+
+\pagestyle{plain}
+
+% Einbinden der Titelseite
+\include{titelseite}
+
+\clearpage
+
+% Erstes Kapitel
+\section*{Game Outline:}
+Skateboard 2D ist ein Jump \& Run, in dem man mit einem selbst erstellten Charakter von
+links nach rechts durch Level skatet, begleitet von passender, schneller Musik.
+Es kann zwischen mehreren Hintergrundgeschichten gewählt werden, sei es als
+entkommener Gefängnisinsasse oder die Flucht von einem misslungenen Date. Die
+einzelnen Level bringen den Spieler durch mystische Wälder, über Straßen und Felder,
+welche alle eigene Eigenschaften haben (siehe Kapitel Spielewelt \& Charakter).
+Durch diese Auswahlmöglichkeiten werden verschiedene Spielweisen ermöglicht, je
+nachdem welchen Spielstil man präferiert.
+In den Leveln selbst kann der Spieler springen, Stunts vollführen, beschleunigen und, je
+nach Spielstil, das gewünschte Ziel mit diesen Mitteln erreichen. Stunts und die folgende
+Landung erhöhen die Geschwindigkeit, falls sie korrekt ausgeführt wurden, was natürlich
+sehr wichtig für Speedruns und Ähnliches ist.
+Falls man dabei einen Fehler macht, verlangsamt sich die Geschwindigkeit, oder der
+Charakter stürzt sogar vom Skateboard, was die Geschwindigkeit wieder komplett
+zurücksetzt.
+Das Ganze wird natürlich auch in entsprechenden Bestenlisten festgehalten, in denen man
+sich eventuell mit anderen Skatern messen kann.
+
+\clearpage
+
+% Zweites Kapitel
+\section*{Mechaniken:}
+Grundsätzlich bewegt sich der Spieler im klassischen Jump \& Run Stil von links nach rechts.
+Der Spieler startet bei der Geschwindigkeit 0 auf dem Skateboard und dieses beschleunigt
+von alleine, bis zu einem bestimmten Maximum.
+Dieses Tempo soll in etwa etwas mehr als Schrittgeschwindigkeit darstellen, durch
+verschiedene Interaktionen soll der Spieler die Möglichkeit haben dieses Tempo zu erhöhen.
+\\ \\
+Diese Interaktionen (auch Button-Press) sind wie folgt beschrieben:
+\begin{itemize}
+	\item \textbf{Antreten:} \\ Durch das Antreten auf dem Boden kann der Spieler mit Hilfe seines Fußes das Skateboard
+	beschleunigen.
+	Die Geschwindigkeit die hiermit erreicht werden kann, kann ein bestimmtes Maximum nicht
+	überschreiten (falls man schneller sein sollte, gibt das Antreten keinen zusätzlichen Effekt).
+	Durch jeden Button-Press bekommt man einen festen Boost welcher zur Geschwindigkeit
+	dazu addiert wird. Die Boosts haben einen Cool-Down damit man ihn nicht spamen kann.
+	Werden keine 'perfect landings' ausgeführt und/ oder nicht weiter angetreten, sinkt die
+	Geschwindigkeit nach und nach wieder auf den Standard ab.
+	
+	\item \textbf{Sprung:} \\ Der Spieler kann mit einem Tastendruck einen Sprung durchführen. Dieser dient zur
+	Höhengewinnung. Der Sprung hat immer die gleiche Höhe. Die zurückgelegte Entfernung
+	eines Sprungs wird durch die Geschwindigkeit definiert.
+	
+	\item \textbf{Stunt:} \\ Der Spieler kann (ausschließlich) in der Luft einen 'Stunt' ausführen. Hierfür muss er in der
+	Luft einen Button drücken.
+	\begin{itemize}
+		\item Idee 1: Jeder Stunt gibt die gleiche Anzahl von Punkten und die Zeit ist immer gleich.
+		Lediglich die animation ist random.
+		\item Idee 2: Es gibt mehrere Stunts, welche verschieden lange andauern und eine
+		unterschiedliche Anzahl von Punkten geben.
+	\end{itemize}
+	Jeder Stunt hat eine feste Zeitspanne. Während dieser Zeit darf der Spieler keine Kollision
+	mit anderen Dingen haben (zB. Boden). Sollte dies dennoch passieren, fällt der Spieler vom
+	Skateboard und die Geschwindigkeit wird auf null zurückgesetzt.
+	Es sind feste Spawnpunkte definiert um zu verhindern, dass der Spieler zB. in einem Hindernis spawned.
+	
+	\item \textbf{Perfect landing:} (schwierigere Mechanik)\\ Beim 'perfect landing' erhält der Spieler die Möglichkeit seine maximale Geschwindigkeit zu
+	überschreiten.
+	Durch einen Tastendruck, welcher innerhalb einer bestimmten Zeit nach der Landung
+	getätigt werden muss, erhält der Spieler einen zusätzlichen Geschwindigkeits-Boost.
+	Dieser zusätzliche Boost baut sich nach und nach wieder ab. Durch häufiges Aneinanderreihen mehrerer 'perfect landings' bevor diese sich abgebaut haben kann die Geschwindigkeit
+	auf ein Extremes erhöht werden. (Hier ist das Limit sehr hoch angesetzt)
+	Ein 'perfect landing' kann man sich sozusagen als sauberes Abfangen des Fallens vorstellen
+	wodurch das Momentum von dem Fall in Geschwindigkeit umgewandelt wird.
+	Sollte der Spieler zu früh versuchen ein 'perfect landing' auszuführen, dann fällt er vom
+	Skateboard und startet wieder bei Geschwindigkeit 0.
+	Sollte der Spieler zu spät versuchen ein 'perfect landing' zu probieren, erhält man keinen Boost
+	und alle anderen 'perfect landing'-Boosts werden entfernt.
+	Ein 'perfect landing' gibt nur einen Boost, wenn es nach einem erfolgreichen Stunt ausgeführt wird.
+\end{itemize}
+	
+	Die Zeit des Runs wird gemessen und zum Schluss angezeigt. Durch die verschiedenen
+	Mechaniken wird gewährleistet, dass ein Spieler ein Level in sehr vielen
+	unterschiedlichen Zeiten abschließen kann. Dadurch wird die Wettbewerbsfähigkeit des
+	Spiels ausgebaut.\\
+	
+	Außerdem gibt es einen dauerhaften Verfolger, welcher versucht den Spieler zu erreichen.
+	Wenn der Spieler zu langsam ist wird er von diesem gefangen und es ist ein Game Over.
+	Der Verfolger ist deaktivierbar.
+\clearpage
+
+\section{Charakter:}
+Zu Beginn kann man im Menü seinen Charakter aus ein paar gegebenen Kleidungsstücken,
+Haaren, Schuhen und Figurmodellen(Geschlecht, Hautfarbe \& evtl. Größe) selbst erstellen.
+Zu Beginn kann zwischen zwei Skateboards ausgewählt werden, neue
+Skins und bessere Skateboards werden im jeweils höheren Level bzw. durch besondere
+Tricks freigeschaltet. Alter des Charakters soll Anfang/Mitte 20 sein und der Name kann vom
+Spieler selbst ausgesucht werden (Eingabe des Namens nach
+Erstellung des Charakters oder evtl. auch davor, was sich eher ergibt).
+Die Hintergrundgeschichte ist ebenfalls auswählbar. Man kann aus drei vorgegebenen
+Storys auswählen:
+\begin{enumerate}
+	\item Charakter ist nach langer Planung gerade aus dem Gefängnis ausgebrochen
+	und auf der Flucht. Zufälligerweise findet er auf dem Parkplatz des Gefängnisses ein
+	Skateboard und nimmt dieses als 'Fluchtfahrzeug'. (evtl. sieht man die
+	Polizei kurz hinterherfahren/-laufen bei misslungenen Stunts)
+	\item Charakter hat gerade Schule/Studium abgeschlossen und möchte eine
+	Weltreise machen. Immer dabei: sein Skateboard.
+	\item  Charakter hatte ein misslungenes Date. Jetzt ist er mit seinem Skateboard auf
+	der Flucht vor dem Date (sieht man evtl. bei misslungenen Stunts durch Verlangsamung des
+	Charakters kurz hinterherrennen)
+\end{enumerate}
+Der Charaktertyp wird auf die jeweilige Hintergrundgeschichte angepasst:
+
+\begin{enumerate}
+	\item Häftling ist eher der 'Haudrauf-Typ', macht Stunts sehr energisch, rastet kurz
+aus wenn ein Stunt nicht klappt. (schimpft evtl. mit Spieler)
+	\item Ist die ganze Zeit happy, misslungene Stunts machen ihm nicht wirklich etwas aus.
+(ermutigt Spieler evtl. es ruhig nochmal zu versuchen)
+	\item Total ängstlicher \& unsicherer Typ, schnell deprimiert bei vielen misslungenen
+Stunts, große Angst vor verfolgendem Date.
+\end{enumerate}
+
+Hat der Charakter besondere Waffen o.ä.? Ja, Hintergrundgeschichte 1. \& 3. schon, da die
+jeweiligen Charaktere ja auf der Flucht sind. Wenn sie einen Stunt nicht hinbekommen,
+können sie evtl. mit einer Dose in Richtung des Verfolgers sprayen,
+aus welcher dann eine Art Nebelwand herauskommt. Diese gibt dem Spieler genügend Zeit
+um seine Geschwindigkeit wieder aufzuholen.
+\clearpage
+
+\section{Spielewelt:}
+Als Orte werden vorerst Wälder, Straßen und Felder festgehalten. Auf den Feldern und
+im Wald ist natürlich eine Art Weg, auf dem man gut fahren kann. Spieler lässt Charakter
+beschleunigen, über Hindernisse springen und Stunts
+ausführen. Bei Thematik 1. \& 3. soll eine eher hektische Stimmung erzeugt werden, da der
+Spieler auf der Flucht ist. Bei Thematik 2. geht es einfach nur um den Spaß beim
+Zocken und neue Tricks etc. zu erlernen.\\ \\
+Die Hintergrundmusik soll etwas Hip-Hop-artiges bzw. rockiges sein. Die
+verschiedenen Orte werden jeweils nach abfahren der einzelnen Level erkundet, je höher
+das Level, desto schwieriger das Gebiet.\\ \\
+Der Spieler bewegt sich größtenteils auf dem Skateboard fort, wenn er einen Stunt nicht
+hinbekommt fällt er hin. Danach springt er direkt wieder auf sein Skateboard, um
+schnell wieder beschleunigen und evtl. seinen Verfolgern entfliehen zu können.
+Die Wälder und Felder sind im mystischen Stil gehalten, Spezial-Level welche kurzzeitig in
+anderen Welten/auf anderen Planeten spielen sind auch möglich. Kurzes Auftauchen von
+irgendwelchen mythologischen Wesen o.ä im Hintergrund und evtl. kurzes "Daumen-Hoch"
+oder weiteres Anfeuern des Spielers als zukünftige Ideen.
+\clearpage
+
+\section{Spielerfahrung:}
+Zu Beginn wird der Spieler in das Menü hineingeworfen. Hier sieht man groß das Logo 'hier
+Spielename'. Im Hintergrund läuft eine kleine Animation des Spielhintergrundes. Im Menü
+wird dem Spieler drei Optionen angeboten. Bei der Einstellungsauswahl sind
+Lautstärkeregler. Beim Highscore werden die Bestplatzierten mit deren Punktezahl und
+dem Rang des Spielers angezeigt. Und natürlich aktiviert man mit dem 'Spielen'-Button das
+Game.\\ \\
+Ohne viel Gerede wird man ins Spiel hineingeworfen. Der Hauptcharakter befindet sich in
+einer von mehreren Skate-Maps. Man bekommt den Flair eines Oldschool Jump \& Runs.
+Je nach Map-Thema bekommt man einen heiteren, aber hektischen Eindruck. Ziel ist es auch
+das Level möglichst schnell durchzulaufen. Dafür suggeriert die Musik, Hintergrund und
+Animationen, die einen aufhyped und sagen will, 'Auf dem Skateboard werde ich super
+schnell'. Jeder Erfolg hat eine 'bessere' Animation, z.B gibt es für mehrere Punkte auf
+Combos größere Zahlen und Soundeffekte.\\ \\
+Die Kommandos, die der Spieler dem Charakter gibt, werden zeitnah ausgeführt,
+um dem Spieler ein Erfolgserlebnis für erfolgreiche Stunts und Combos zu bieten. Dafür hilft
+es darauf zu achten, wann die Animation der Stunts endet, damit man ein Gefühl dafür
+bekommt, wann man sicher auf dem Boden ankommt.\\ \\
+Die Stunt-Combos sollen eine Herausforderung bieten. Zum einen wird die
+Reaktionsgeschwindigkeit beansprucht, als auch die antrainierte Musclememory. Ziel ist es
+bei einer erfolgreichen Combo dem Spieler mit höheren Punkten und einem
+Geschwindigkeitsboost zu belohnen.\\ \\
+Was passiert, wenn man einen Stunt verfehlt und der Charakter auf den Boden fällt? Je
+nach Level hat man ein Verfolger der einem im Nacken hängt. Dadurch soll eine
+Anspannung entstehen, die immer größer wird je öfter man Zeit damit verschwendet auf den
+Boden zu fallen.\\ \\
+Spiel Ende: hat der Charakter das Ende der Map erreicht, wird einem angezeigt,
+dass man das Level geschafft hat. Zusätzlich werden einem der Punktestand und die
+absolvierte Zeit angegeben. Falls der Spieler es in die Top 10, 5 schafft oder Erster geworden ist,
+wird ihm zusätzlich gratuliert.\\ \\
+Die Punkten die man mit jedem Level einsammelt, kann man zum unlocken von anderen
+Maps benutzen, oder auch für andere Skateboard- und Charakterskins ausgeben.
+Das Spiel soll sowohl die Spieler ansprechen, die bei Jump \& Runs ihren Spaß haben und
+die, die ein kleines kompetitives Spiel wollen und ihre Reaktions-Skills dazu zu nutzen, um
+den Highscore zu knacken.
+\clearpage
+
+\section{Beat Chart:}
+\begin{tabular}[h]{|l|l|}
+	\hline
+	Level & Gefängnis Ausbruch \\
+	\hline
+	Tageszeit & Nachts \\
+	\hline
+	Geschätzte Spielzeit & ~2-5 min.\\
+	Umgebung & Gefängnis-Kulisse, Suchscheinwerfer und Helikopter im
+	Hintergrund.\\
+	\hline
+	Benutzte Mechaniken & Zusätzliche Punkte durch Stunts, Boost durch 'perfect landing'.\\
+	\hline
+	Benutzte Gefahren & Hinfallen, Verfolger \\
+	\hline
+	Musik & schneller Hiphop-Track, der etwas bedrohliches hat. \\
+	\hline
+\end{tabular}
+\clearpage
+
+\end{document}
