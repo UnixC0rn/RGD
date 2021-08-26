@@ -8,43 +8,41 @@
 [ext_resource path="res://art/player-jump-up-2.png" type="Texture" id=6]
 [ext_resource path="res://art/player-skate-still-1.png" type="Texture" id=7]
 [ext_resource path="res://art/player-drop-down-2.png" type="Texture" id=8]
-[ext_resource path="res://Player.gd" type="Script" id=9]
+[ext_resource path="res://scripts/player.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "drop down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "skate forward",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "still",
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "drop",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "skate",
+"speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 30.847
-height = 81.2224
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 59.959, 57.0326 )
 
-[node name="Player" type="Area2D"]
-position = Vector2( 75.5952, 526.647 )
+[node name="Player" type="KinematicBody2D"]
 script = ExtResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "still"
+animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -13.2292, 0 )
+position = Vector2( -5.82704, 1.05946 )
 shape = SubResource( 2 )
