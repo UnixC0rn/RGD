@@ -1,4 +1,4 @@
-extends AudioStreamPlayer
+extends AudioStreamPlayer2D
 
 
 # Declare member variables here. Examples:
@@ -14,12 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
-func stop_playing_music()  -> void:
-	self.playing = false
-
-func _on_LevelEndMarker_body_entered(body: Node) -> void:
-	stop_playing_music()
 
 
 func _on_DeathCollisionMarker_body_entered(body: Node) -> void:
-	stop_playing_music()
+	pass #self.play() when death sound is available

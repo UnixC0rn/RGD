@@ -1,6 +1,6 @@
-extends AudioStreamPlayer
+extends Area2D
 
-
+export(String,FILE) var next_scene_path: = "res://Screens/MissionFailedScreen.tscn"
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
@@ -14,12 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
-func stop_playing_music()  -> void:
-	self.playing = false
-
-func _on_LevelEndMarker_body_entered(body: Node) -> void:
-	stop_playing_music()
 
 
 func _on_DeathCollisionMarker_body_entered(body: Node) -> void:
-	stop_playing_music()
+	get_tree().change_scene(next_scene_path)

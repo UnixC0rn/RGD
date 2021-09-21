@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/AudioStreamPlayer2D.gd" type="Script" id=1]
+[ext_resource path="res://Objects/DeathCollisionMarker.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 97.6265, 4.08424 )
+
+[node name="DeathCollisionMarker" type="Area2D"]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.657379, -36.0789 )
+scale = Vector2( 80, 1 )
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -2.37842, -42.8115 )
+script = ExtResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_DeathCollisionMarker_body_entered"]
+[connection signal="body_entered" from="." to="AudioStreamPlayer2D" method="_on_DeathCollisionMarker_body_entered"]

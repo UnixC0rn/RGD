@@ -14,12 +14,20 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
-func stop_playing_music()  -> void:
-	self.playing = false
-
-func _on_LevelEndMarker_body_entered(body: Node) -> void:
-	stop_playing_music()
 
 
-func _on_DeathCollisionMarker_body_entered(body: Node) -> void:
-	stop_playing_music()
+func _on_StartGameButton_button_down() -> void:
+	_play_Button_click_Sound()
+
+
+func _on_TempButton_button_down() -> void:
+	_play_Button_click_Sound()
+
+func _on_ExitGameButton_button_down() -> void:
+	_play_Button_click_Sound()
+
+func _play_Button_click_Sound() -> void:
+	print_debug("playing")
+	self.play()
+
+

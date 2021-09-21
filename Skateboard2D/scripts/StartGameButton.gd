@@ -2,7 +2,6 @@ extends Button
 
 export(String,FILE) var next_scene_path: = "res://Levels/FirstLevel.tscn"
 
-
 func _on_StartGameButton_button_up() -> void:
 	#play game when buttonpress is released
 	get_tree().change_scene(next_scene_path)

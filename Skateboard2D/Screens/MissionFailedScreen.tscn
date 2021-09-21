@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/Game_over.png" type="Texture" id=1]
+[ext_resource path="res://scripts/StartGameButton.gd" type="Script" id=2]
+[ext_resource path="res://scripts/ExitGameButton.gd" type="Script" id=3]
+[ext_resource path="res://Sounds/Game_over.wav" type="AudioStream" id=4]
+[ext_resource path="res://scripts/AudioStreamPlayer.gd" type="Script" id=5]
+
+[node name="MissionFailedScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -668.672
+margin_top = -429.691
+margin_right = 1251.33
+margin_bottom = 650.309
+rect_scale = Vector2( 0.708, 0.744 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -104.0
+margin_top = -40.5
+margin_right = 104.0
+margin_bottom = 40.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartGameButton" type="Button" parent="VBoxContainer"]
+margin_right = 208.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Try again"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitGameButton" type="Button" parent="VBoxContainer"]
+margin_top = 42.0
+margin_right = 208.0
+margin_bottom = 81.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Exit Game"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+script = ExtResource( 5 )
+
+[connection signal="button_up" from="VBoxContainer/StartGameButton" to="VBoxContainer/StartGameButton" method="_on_StartGameButton_button_up"]
+[connection signal="button_up" from="VBoxContainer/ExitGameButton" to="VBoxContainer/ExitGameButton" method="_on_ExitGameButton_button_up"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_AudioStreamPlayer_finished"]
