@@ -10,8 +10,6 @@ onready var audio_finished: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 #alternative -> score anzeige oder nächstes level einfügen anstatt hauptmenü (falls vorhanden)
 func _on_body_entered(body: Node) -> void:
-	yield(audio_finished,"finished")
-	print_debug("on body entered Teleport")
 	teleport()
 	
 func _get_configuration_warning() -> String:
@@ -22,4 +20,5 @@ func teleport() -> void:
 	anim_player.play("fade_in") #play the Level finished animation
 	yield(anim_player,"animation_finished") #wait for anim to finish
 	get_tree().change_scene_to(next_scene) #change scene from level to the added next scene
+
 
