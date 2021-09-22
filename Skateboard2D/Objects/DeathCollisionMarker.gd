@@ -1,6 +1,7 @@
 extends Area2D
 
 export(String,FILE) var next_scene_path: = "res://Screens/MissionFailedScreen.tscn"
+onready var anim_player: AnimationPlayer = $AnimationPlayer
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
@@ -15,6 +16,7 @@ func _ready() -> void:
 #func _process(delta: float) -> void:
 #	pass
 
-
 func _on_DeathCollisionMarker_body_entered(body: Node) -> void:
+	anim_player.play("fade_in") #play the Level finished animation
+	yield(anim_player,"animation_finished") #wait for anim to finish
 	get_tree().change_scene(next_scene_path)
