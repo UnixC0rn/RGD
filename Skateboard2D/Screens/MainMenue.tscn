@@ -100,12 +100,12 @@ stream = ExtResource( 7 )
 script = ExtResource( 6 )
 
 [connection signal="button_down" from="VBoxContainer/StartGameButton" to="ButtonClickSoundPlayer" method="_on_StartGameButton_button_down"]
-[connection signal="button_up" from="VBoxContainer/StartGameButton" to="VBoxContainer/StartGameButton" method="_on_StartGameButton_button_up"]
 [connection signal="button_up" from="VBoxContainer/StartGameButton" to="ButtonClickSoundPlayer" method="_on_StartGameButton_button_up"]
+[connection signal="button_up" from="VBoxContainer/StartGameButton" to="VBoxContainer/StartGameButton" method="_on_StartGameButton_button_up"]
 [connection signal="button_down" from="VBoxContainer/TempButton" to="ButtonClickSoundPlayer" method="_on_TempButton_button_down"]
 [connection signal="button_up" from="VBoxContainer/TempButton" to="ButtonClickSoundPlayer" method="_on_TempButton_button_up"]
 [connection signal="button_down" from="VBoxContainer/ExitGameButton" to="ButtonClickSoundPlayer" method="_on_ExitGameButton_button_down"]
-[connection signal="button_up" from="VBoxContainer/ExitGameButton" to="VBoxContainer/ExitGameButton" method="_on_ExitGameButton_button_up"]
 [connection signal="button_up" from="VBoxContainer/ExitGameButton" to="ButtonClickSoundPlayer" method="_on_ExitGameButton_button_up"]
+[connection signal="button_up" from="VBoxContainer/ExitGameButton" to="VBoxContainer/ExitGameButton" method="_on_ExitGameButton_button_up"]
 [connection signal="finished" from="MainMenueMusic" to="MainMenueMusic" method="_on_AudioStreamPlayer_finished"]
 [connection signal="finished" from="ButtonClickSoundPlayer" to="VBoxContainer/StartGameButton" method="_on_ButtonClickSoundPlayer_finished"]
