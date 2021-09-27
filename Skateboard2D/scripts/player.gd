@@ -5,6 +5,9 @@ var velocity = Vector2.ZERO
 export (int) var skatespeed = 500
 export (int) var gravity = 3500
 export (int) var jumpvelocity = -1300
+export (float, 0, 1.0) var friction = 0.1
+export (float, 0, 1.0) var acceleration = 0.2
+var dir = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,15 +16,18 @@ func _ready():
 #sets input vars so that we know how the player is supposed to move
 #TODO animation when falling
 func get_input():
+	dir = 0
 	#left/right movement
 	if Input.is_action_pressed("move_right"):
 		movingright = true
-		velocity.x = skatespeed
+		dir += 1
 	elif Input.is_action_pressed("move_left"):
 		movingright = false	
-		velocity.x = -skatespeed
-	else: 
-		velocity.x = 0 
+		dir -= 1
+	if dir != 0:
+		velocity.x = lerp(velocity.x, dir * skatespeed, acceleration)
+	else:
+		velocity.x = lerp(velocity.x, 0, friction)
 	
 	#sets player orientation 
 	if not movingright:
@@ -37,9 +43,9 @@ func _physics_process(delta):
 	#second parameter determines what is the up direction, so that we know where the floor is for animations and such
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
-	if (velocity.x == 0 && is_on_floor()):
+	if (dir == 0 && is_on_floor()):
 		$AnimatedSprite.play("idle")
-	if (velocity.x != 0 && is_on_floor()):
+	if (dir != 0 && is_on_floor()):
 		$AnimatedSprite.play("skate")
 	if Input.is_action_just_pressed("jump"):
 		if (is_on_floor()):
