@@ -8,10 +8,17 @@ export (int) var jumpvelocity = -1300
 export (float, 0, 1.0) var friction = 0.1
 export (float, 0, 1.0) var acceleration = 0.2
 var dir = 0
+var landing : bool
+var speedboost = false
+var timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	movingright = true # Replace with function body.
+	timer = Timer.new()
+	timer.connect("timeout", self, "_on_timer_timeout")
+	add_child(timer)
+	timer.set_one_shot(true)
 
 #sets input vars so that we know how the player is supposed to move
 #TODO animation when falling
@@ -39,10 +46,12 @@ func get_input():
 #TODO animation when falling
 func _physics_process(delta):
 	get_input()
+	if speedboost:
+		velocity.x = velocity.x * 2
+		speedboost = false
 	velocity.y += gravity * delta
 	#second parameter determines what is the up direction, so that we know where the floor is for animations and such
 	velocity = move_and_slide(velocity, Vector2.UP)
-	
 	if (dir == 0 && is_on_floor()):
 		$AnimatedSprite.play("idle")
 	if (dir != 0 && is_on_floor()):
@@ -50,4 +59,24 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump"):
 		if (is_on_floor()):
 			$AnimatedSprite.play("jump")
-			velocity.y = jumpvelocity	
+			velocity.y = jumpvelocity
+	if (is_on_floor()):
+		if landing:
+			landing = false
+			start_timer_for_pl()
+	else:
+		if !landing:
+			landing = true
+	if landing:
+		print("landing")	
+	if (Input.is_action_just_pressed("accel") && !(timer.is_stopped())):
+		timer.stop()
+		speedboost = true
+		print("PERFECT LANDING")
+
+func start_timer_for_pl():
+	var perfect_landing_time = 0.25
+	timer.start(perfect_landing_time)
+
+func _on_timer_timeout():
+	print("timer timeout")
