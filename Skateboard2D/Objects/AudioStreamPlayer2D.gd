@@ -15,6 +15,3 @@ func _ready() -> void:
 #func _process(delta: float) -> void:
 #	pass
 
-
-func _on_DeathCollisionMarker_body_entered(body: Node) -> void:
-	pass #self.play() when death sound is available

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/factory_background.jpg" type="Texture" id=1]
 [ext_resource path="res://scripts/StartGameButton.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scripts/AudioStreamPlayer.gd" type="Script" id=5]
 [ext_resource path="res://Screens/ButtonClickSoundPlayer.gd" type="Script" id=6]
 [ext_resource path="res://Sounds/ClickButton.wav" type="AudioStream" id=7]
+[ext_resource path="res://Screens/EngineButton.gd" type="Script" id=8]
 
 [node name="MainMenue" type="Control"]
 anchor_right = 1.0
@@ -16,8 +17,10 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="."]
-margin_right = 2015.0
-margin_bottom = 755.0
+margin_left = 0.943848
+margin_top = -0.943848
+margin_right = 2015.94
+margin_bottom = 754.056
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 1 )
@@ -67,13 +70,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TempButton" type="Button" parent="VBoxContainer"]
+[node name="Credits" type="Button" parent="VBoxContainer"]
 margin_top = 28.0
 margin_right = 208.0
 margin_bottom = 52.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Highscores"
+text = "Credits"
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -100,12 +104,10 @@ stream = ExtResource( 7 )
 script = ExtResource( 6 )
 
 [connection signal="button_down" from="VBoxContainer/StartGameButton" to="ButtonClickSoundPlayer" method="_on_StartGameButton_button_down"]
-[connection signal="button_up" from="VBoxContainer/StartGameButton" to="ButtonClickSoundPlayer" method="_on_StartGameButton_button_up"]
 [connection signal="button_up" from="VBoxContainer/StartGameButton" to="VBoxContainer/StartGameButton" method="_on_StartGameButton_button_up"]
-[connection signal="button_down" from="VBoxContainer/TempButton" to="ButtonClickSoundPlayer" method="_on_TempButton_button_down"]
-[connection signal="button_up" from="VBoxContainer/TempButton" to="ButtonClickSoundPlayer" method="_on_TempButton_button_up"]
+[connection signal="button_down" from="VBoxContainer/Credits" to="ButtonClickSoundPlayer" method="_on_TempButton_button_down"]
+[connection signal="button_up" from="VBoxContainer/Credits" to="VBoxContainer/Credits" method="_on_TempButton_button_up"]
 [connection signal="button_down" from="VBoxContainer/ExitGameButton" to="ButtonClickSoundPlayer" method="_on_ExitGameButton_button_down"]
-[connection signal="button_up" from="VBoxContainer/ExitGameButton" to="ButtonClickSoundPlayer" method="_on_ExitGameButton_button_up"]
 [connection signal="button_up" from="VBoxContainer/ExitGameButton" to="VBoxContainer/ExitGameButton" method="_on_ExitGameButton_button_up"]
 [connection signal="finished" from="MainMenueMusic" to="MainMenueMusic" method="_on_AudioStreamPlayer_finished"]
 [connection signal="finished" from="ButtonClickSoundPlayer" to="VBoxContainer/StartGameButton" method="_on_ButtonClickSoundPlayer_finished"]

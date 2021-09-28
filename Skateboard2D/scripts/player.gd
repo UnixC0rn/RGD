@@ -11,6 +11,8 @@ var dir = 0
 var landing : bool
 var speedboost = false
 var timer
+onready var audio_land: AudioStreamPlayer = $LandingSound
+onready var audio_jump: AudioStreamPlayer = $JumpingSound #anbinden sobald landing anständig detcted
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -60,6 +62,7 @@ func _physics_process(delta):
 		if (is_on_floor()):
 			$AnimatedSprite.play("jump")
 			velocity.y = jumpvelocity
+			audio_jump.play()
 	if (is_on_floor()):
 		if landing:
 			landing = false

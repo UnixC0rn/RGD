@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Objects/AudioStreamPlayer2D.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/Death_sound.wav" type="AudioStream" id=2]
 [ext_resource path="res://Objects/DeathCollisionMarker.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -45,10 +45,6 @@ position = Vector2( 0.657379, -36.0789 )
 scale = Vector2( 80, 1 )
 shape = SubResource( 1 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( -2.37842, -42.8115 )
-script = ExtResource( 1 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade_in = SubResource( 2 )
 anims/fade_out = SubResource( 3 )
@@ -65,5 +61,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
 [connection signal="body_entered" from="." to="." method="_on_DeathCollisionMarker_body_entered"]
-[connection signal="body_entered" from="." to="AudioStreamPlayer2D" method="_on_DeathCollisionMarker_body_entered"]

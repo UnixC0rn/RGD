@@ -17,6 +17,7 @@ func _get_configuration_warning() -> String:
 
 
 func teleport() -> void:
+	
 	anim_player.play("fade_in") #play the Level finished animation
 	yield(anim_player,"animation_finished") #wait for anim to finish
 	get_tree().change_scene_to(next_scene) #change scene from level to the added next scene
