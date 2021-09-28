@@ -3,7 +3,6 @@ extends Area2D
 
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 export var next_scene: PackedScene
-onready var audio_finished: AudioStreamPlayer2D = $AudioStreamPlayer2D
 #TODO 
 # wenn hauptmenü steht LevelEndMarker auswählen und hauptmenü per drag and drop
 #in "next_scene" propertie damit nach level ende wieder hauptmenü aufgerufen wird.
