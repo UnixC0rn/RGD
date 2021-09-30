@@ -11,7 +11,7 @@ var dir = 0
 var landing : bool
 var speedboost = false
 var timer
-onready var audio_land: AudioStreamPlayer = $LandingSound
+onready var audio_land_pl: AudioStreamPlayer = $PerfectLandingSound
 onready var audio_jump: AudioStreamPlayer = $JumpingSound #anbinden sobald landing anständig detcted
 
 # Called when the node enters the scene tree for the first time.
@@ -70,11 +70,10 @@ func _physics_process(delta):
 	else:
 		if !landing:
 			landing = true
-	if landing:
-		print("landing")	
 	if (Input.is_action_just_pressed("accel") && !(timer.is_stopped())):
 		timer.stop()
 		speedboost = true
+		audio_land_pl.play() #play perfectLandingSoundAnim
 		print("PERFECT LANDING")
 
 func start_timer_for_pl():

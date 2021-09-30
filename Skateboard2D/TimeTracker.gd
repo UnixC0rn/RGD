@@ -5,11 +5,11 @@ extends Node
 # var a: int = 2
 # var b: String = "text"
 var time = 0
-export var timer_on = false
+export var timer_on = false #export so other objects can decide when the timer stops
 export var passed_time: String = "%02d : %02d : %03d" % [0,0,0]
-var mils = 0
-var secs = 0
-var mins = 0
+export var mils = 0
+export var secs = 0
+export var mins = 0
 onready var label: Label = $CanvasLayer/Label
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
