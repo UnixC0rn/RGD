@@ -7,10 +7,14 @@ export (int) var gravity = 3500
 export (int) var jumpvelocity = -1300
 export (float, 0, 1.0) var friction = 0.1
 export (float, 0, 1.0) var acceleration = 0.2
+export (float) var perfect_landing_time = 0.25
+export (float) var perfect_landing_boost_duration = 0.5
 var dir = 0
 var landing : bool
 var speedboost = false
+var speedboost_one_shot = false
 var timer
+var timer2
 onready var audio_land_pl: AudioStreamPlayer = $PerfectLandingSound
 onready var audio_jump: AudioStreamPlayer = $JumpingSound #anbinden sobald landing anständig detcted
 
@@ -21,9 +25,9 @@ func _ready():
 	timer.connect("timeout", self, "_on_timer_timeout")
 	add_child(timer)
 	timer.set_one_shot(true)
+	
 
 #sets input vars so that we know how the player is supposed to move
-#TODO animation when falling
 func get_input():
 	dir = 0
 	#left/right movement
@@ -45,12 +49,18 @@ func get_input():
 		$AnimatedSprite.set_flip_h(false)
 
 #actually moves player
-#TODO animation when falling
 func _physics_process(delta):
-	get_input()
+	## speedboost received from perfect landing
 	if speedboost:
-		velocity.x = velocity.x * 2
-		speedboost = false
+		if (timer.is_stopped()):
+			speedboost = false
+			skatespeed = skatespeed / 2
+		if speedboost_one_shot:
+			skatespeed = skatespeed * 2
+			speedboost_one_shot = false
+	
+	#standard skate and jump physics
+	get_input()
 	velocity.y += gravity * delta
 	#second parameter determines what is the up direction, so that we know where the floor is for animations and such
 	velocity = move_and_slide(velocity, Vector2.UP)
@@ -63,8 +73,10 @@ func _physics_process(delta):
 			$AnimatedSprite.play("jump")
 			velocity.y = jumpvelocity
 			audio_jump.play()
+	
+	## perfect landing conditionals and implementation ##
 	if (is_on_floor()):
-		if landing:
+		if (landing && timer.is_stopped()):
 			landing = false
 			start_timer_for_pl()
 	else:
@@ -73,11 +85,12 @@ func _physics_process(delta):
 	if (Input.is_action_just_pressed("accel") && !(timer.is_stopped())):
 		timer.stop()
 		speedboost = true
+		speedboost_one_shot = true
+		timer.start(perfect_landing_boost_duration)
 		audio_land_pl.play() #play perfectLandingSoundAnim
 		print("PERFECT LANDING")
 
 func start_timer_for_pl():
-	var perfect_landing_time = 0.25
 	timer.start(perfect_landing_time)
 
 func _on_timer_timeout():
