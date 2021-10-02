@@ -67,7 +67,10 @@ func _physics_process(delta):
 	if (dir == 0 && is_on_floor()):
 		$AnimatedSprite.play("idle")
 	if (dir != 0 && is_on_floor()):
-		$AnimatedSprite.play("skate")
+		if !speedboost:
+			$AnimatedSprite.play("skate")
+		else:
+			$AnimatedSprite.play("plsSpeed")
 	if Input.is_action_just_pressed("jump"):
 		if (is_on_floor()):
 			$AnimatedSprite.play("jump")
