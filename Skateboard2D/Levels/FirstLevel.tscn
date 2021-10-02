@@ -1044,7 +1044,7 @@ script = ExtResource( 11 )
 tile_set = SubResource( 8 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 1312086, 4, 0, 1312087, 4, 0, 1312088, 4, 0, 1312089, 4, 0, 1312090, 4, 0, 1312091, 4, 0, 1312092, 4, 0, 1312093, 4, 0, 1312094, 4, 0, 1312095, 4, 0, 1377663, 4, 0, 1377664, 4, 0, 1377665, 4, 0, 1377666, 4, 0, 1377672, 4, 0, 1377673, 4, 0, 1377674, 4, 0, 1377675, 4, 0, 1377676, 4, 0, 1639759, 4, 0, 1639760, 4, 0, 1639761, 4, 0, 1639762, 4, 0, 1639763, 4, 0, 1705256, 4, 0, 1705257, 4, 0, 1705258, 4, 0, 1705321, 4, 0, 1705322, 4, 0, 1705323, 4, 0, 1705324, 4, 0, 1705325, 4, 0, 1705326, 4, 0, 1705327, 4, 0, 1705328, 4, 0, 1705329, 4, 0, 1705330, 4, 0, 1705331, 4, 0, 1705332, 4, 0, 1705333, 4, 0, 1705334, 4, 0, 1705335, 4, 0, 1705336, 4, 0, 1705337, 4, 0, 1770910, 4, 0, 1836446, 4, 0, 1901898, 4, 0, 1901899, 4, 0, 1901900, 4, 0, 1901982, 4, 0, 1967434, 4, 0, 1967518, 4, 0, 2032862, 0, 0, 2032943, 4, 0, 2032944, 4, 0, 2032945, 4, 0, 2032946, 4, 0, 2032947, 4, 0, 2032948, 4, 0, 2032949, 4, 0, 2032950, 4, 0, 2032967, 4, 0, 2032968, 4, 0, 2032969, 4, 0, 2032970, 4, 0, 2033042, 4, 0, 2033043, 4, 0, 2033044, 4, 0, 2033045, 4, 0, 2033046, 4, 0, 2033047, 4, 0, 2033048, 4, 0, 2033049, 4, 0, 2033050, 4, 0, 2033051, 4, 0, 2033052, 4, 0, 2033053, 4, 0, 2033054, 4, 0, 2164027, 4, 0, 2164028, 4, 0, 2164029, 4, 0, 2164030, 4, 0, 2164031, 4, 0, 2164032, 4, 0, 2164033, 4, 0, 2164034, 4, 0, 2164035, 4, 0 )
+tile_data = PoolIntArray( 1179681, 2, 0, 1179682, 2, 0, 1179683, 2, 0, 1179684, 2, 0, 1179685, 2, 0, 1179686, 2, 0, 1179687, 2, 0, 1179688, 2, 0, 1245215, 2, 0, 1245216, 2, 0, 1310750, 2, 0, 1312086, 4, 0, 1312087, 4, 0, 1312088, 4, 0, 1312089, 4, 0, 1312090, 4, 0, 1312091, 4, 0, 1312092, 4, 0, 1312093, 4, 0, 1312094, 4, 0, 1312095, 4, 0, 1377663, 4, 0, 1377664, 4, 0, 1377665, 4, 0, 1377666, 4, 0, 1377672, 4, 0, 1377673, 4, 0, 1377674, 4, 0, 1377675, 4, 0, 1377676, 4, 0, 1639759, 4, 0, 1639760, 4, 0, 1639761, 4, 0, 1639762, 4, 0, 1639763, 4, 0, 1705256, 4, 0, 1705257, 4, 0, 1705258, 4, 0, 1705321, 4, 0, 1705322, 4, 0, 1705323, 4, 0, 1705324, 4, 0, 1705325, 4, 0, 1705326, 4, 0, 1705327, 4, 0, 1705328, 4, 0, 1705329, 4, 0, 1705330, 4, 0, 1705331, 4, 0, 1705332, 4, 0, 1705333, 4, 0, 1705334, 4, 0, 1705335, 4, 0, 1705336, 4, 0, 1705337, 4, 0, 1770910, 4, 0, 1836446, 4, 0, 1901898, 4, 0, 1901899, 4, 0, 1901900, 4, 0, 1901982, 4, 0, 1967434, 4, 0, 1967518, 4, 0, 2032862, 0, 0, 2032943, 4, 0, 2032944, 4, 0, 2032945, 4, 0, 2032946, 4, 0, 2032947, 4, 0, 2032948, 4, 0, 2032949, 4, 0, 2032950, 4, 0, 2032967, 4, 0, 2032968, 4, 0, 2032969, 4, 0, 2032970, 4, 0, 2033042, 4, 0, 2033043, 4, 0, 2033044, 4, 0, 2033045, 4, 0, 2033046, 4, 0, 2033047, 4, 0, 2033048, 4, 0, 2033049, 4, 0, 2033050, 4, 0, 2033051, 4, 0, 2033052, 4, 0, 2033053, 4, 0, 2033054, 4, 0, 2164027, 4, 0, 2164028, 4, 0, 2164029, 4, 0, 2164030, 4, 0, 2164031, 4, 0, 2164032, 4, 0, 2164033, 4, 0, 2164034, 4, 0, 2164035, 4, 0 )
 
 [node name="Street" type="TileMap" parent="."]
 position = Vector2( 0, -51 )
@@ -1071,9 +1071,13 @@ tile_data = PoolIntArray( 1901115, 5, 0, 1966080, 0, 0, 1966085, 21, 0, 1966088,
 layer = -100
 
 [node name="City_background" type="TextureRect" parent="Background"]
+anchor_top = -0.00374156
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.996258
+margin_right = 900.0
+margin_bottom = 90.0
 texture = ExtResource( 5 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1086,16 +1090,16 @@ script = ExtResource( 4 )
 [node name="LevelEndingObjects" type="Node" parent="."]
 
 [node name="DeathCollisionMarker" parent="LevelEndingObjects" instance=ExtResource( 2 )]
-position = Vector2( 9425.12, 699.998 )
+position = Vector2( 9461.12, 663.919 )
 
 [node name="LevelEndMarker" parent="LevelEndingObjects" instance=ExtResource( 1 )]
-position = Vector2( 22962.1, 474.599 )
+position = Vector2( 22968.1, 474.599 )
 next_scene = ExtResource( 6 )
 
 [node name="TimeTracker" parent="." instance=ExtResource( 12 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 197.15, 423.65 )
+position = Vector2( 228.332, 384.472 )
 
 [node name="Coins" type="Node" parent="."]
 
@@ -1274,5 +1278,5 @@ position = Vector2( 22301.4, 279.842 )
 [connection signal="body_entered" from="LevelEndingObjects/DeathCollisionMarker" to="AudioStreamPlayer" method="_on_DeathCollisionMarker_body_entered"]
 [connection signal="body_entered" from="LevelEndingObjects/DeathCollisionMarker" to="." method="_on_DeathCollisionMarker_body_entered"]
 [connection signal="body_entered" from="LevelEndingObjects/LevelEndMarker" to="AudioStreamPlayer" method="_on_LevelEndMarker_body_entered"]
-[connection signal="body_entered" from="LevelEndingObjects/LevelEndMarker" to="." method="_on_LevelEndMarker_body_entered"]
 [connection signal="body_entered" from="LevelEndingObjects/LevelEndMarker" to="LevelEndingObjects/DeathCollisionMarker" method="_on_LevelEndMarker_body_entered"]
+[connection signal="body_entered" from="LevelEndingObjects/LevelEndMarker" to="." method="_on_LevelEndMarker_body_entered"]
