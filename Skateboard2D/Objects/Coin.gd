@@ -18,4 +18,3 @@ func _on_Coin_body_entered(body: Node) -> void:
 		audio_player.play()
 		played_audio = true
 	anim_player.play("Fade_out")
-	

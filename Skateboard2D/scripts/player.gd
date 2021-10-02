@@ -16,7 +16,7 @@ var speedboost_one_shot = false
 var timer
 var timer2
 onready var audio_land_pl: AudioStreamPlayer = $PerfectLandingSound
-onready var audio_jump: AudioStreamPlayer = $JumpingSound #anbinden sobald landing anständig detcted
+onready var audio_jump: AudioStreamPlayer = $JumpingSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

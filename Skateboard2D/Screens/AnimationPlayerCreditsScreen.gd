@@ -16,9 +16,5 @@ func _ready() -> void:
 #	pass
 
 
-func _on_TextureRect_focus_entered() -> void:
-	print_debug("focusEntered")
-
-
 func _on_ColorRect_ready() -> void:
 	self.play("Fade_out")

@@ -27,7 +27,6 @@ func _on_ExitGameButton_button_down() -> void:
 	_play_Button_click_Sound()
 
 func _play_Button_click_Sound() -> void:
-	print_debug("playing")
 	self.play()
 
 

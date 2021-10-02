@@ -20,9 +20,9 @@ __meta__ = {
 
 [node name="Background" type="TextureRect" parent="."]
 margin_left = -11.0562
-margin_top = -0.943848
+margin_top = -11.9438
 margin_right = 2003.94
-margin_bottom = 754.056
+margin_bottom = 743.056
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 1 )
@@ -80,13 +80,22 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -313.174
-margin_top = -74.7511
-margin_right = 299.826
-margin_bottom = 183.249
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+anchor_bottom = 0.892
+margin_left = -302.0
+margin_top = -11.9438
+margin_right = 308.306
+margin_bottom = -403.144
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 9
+custom_constants/shadow_offset_y = 1
 text = "Skateboard
 2D"
 align = 1
@@ -100,11 +109,11 @@ __meta__ = {
 [node name="ScoreLabel" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
+anchor_bottom = -2.54313e-08
 margin_left = -188.0
 margin_top = 78.0619
 margin_right = 188.0
 margin_bottom = 252.062
-text = "TEST"
 align = 1
 valign = 1
 __meta__ = {
